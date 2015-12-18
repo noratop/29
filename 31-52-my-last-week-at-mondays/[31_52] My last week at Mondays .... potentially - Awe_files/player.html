@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0145)http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined -->
+<html lang="en" class=" js indexeddb history draganddrop websockets localstorage" xml:lang="en" xmlns:fb="http://www.facebook.com/2008/fbml"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Deezer Widget</title>
+	<meta http-equiv="content-language" content="en">
+	<meta property="fb:app_id" content="241284008322">
+	<meta property="og:site_name" content="Deezer">
+
+	<link rel="icon" type="image/png" href="http://e-cdn-files.deezer.com/images/common/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="http://e-cdn-files.deezer.com/images/common/favicon.ico">
+	<link rel="apple-touch-icon" href="http://e-cdn-files.deezer.com/images/common/apple-touch-icon.png">
+	<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/npfkoakaabdallkcdbpkkhfilkkngakh">
+	<link rel="search" type="application/opensearchdescription+xml" href="http://e-cdn-files.deezer.com/xml/opensearch.xml" title="Deezer.com">
+
+	<!--[if gte IE 9]>
+	<meta name="application-name" content="Deezer">
+	<meta name="msapplication-tooltip" content="Launch the Deezer application">
+	<meta name="msapplication-window" content="width=1600;height=1200">
+	<meta name="msapplication-starturl" content="http://www.deezer.com/en/">
+	<meta name="msapplication-navbutton-color" content="#202020">
+	<![endif]-->
+
+	<link href="bootstrap-8c70b22f6c71f265a937a8b43e2063c5.css" rel="stylesheet" type="text/css">
+<link href="widget-fad8357bb5789a0a35cd91fd75171f2d.css" rel="stylesheet" type="text/css">
+
+	<style type="text/css">
+		/* - - Scroll - - */
+		.tinyscroll_viewport{position:relative;height:100%;overflow:hidden}
+		.tinyscroll_overview{position:absolute;top:0;left:0;width:100%;list-style:none}
+		.tinyscroll_thumb .end,.tinyscroll_thumb{background:#838383}
+		.tinyscroll_scrollbar{position:relative;float:right;width:5px}
+
+		.plugin_player .tinyscroll_scrollbar {position:absolute;z-index:10;right:0}
+
+		.tinyscroll_track{position:relative;background:transparent;width:5px;height:100%}
+		.tinyscroll_thumb{position:absolute;top:0;width:5px;height:20px;cursor:pointer;overflow:hidden;border-radius:4px}
+		.tinyscroll_thumb .tinyscroll_end{width:13px;height:5px;overflow:hidden}
+		.disable{display:none}
+	</style>
+
+	<script type="text/javascript" async="" src="ga.js"></script><script type="text/javascript" src="externalwidget-81264304e47be580b7da60a398fde971.js"></script>
+
+<script type="text/javascript">
+document.domain = 'deezer.com';
+if (typeof(init_jquery_address) === 'function') {
+	init_jquery_address();
+}
+</script>
+
+<script type="text/javascript">
+</script>
+
+<script type="text/javascript">
+<!--
+var JS_INIT = [];
+var PROTOCOL_HTTP = 'http://';
+var PROTOCOL_WS = 'ws://';
+var SSL = false;
+var LAYOUT = {"mobile":false,"is_mobile":false,"is_standalone":false,"layout":true,"type":"widget"};
+var PLATFORM = 'web';
+var PLATFORM_OBJ = {"name":false,"os_version":null,"family":"desktop","version":1,"ua":"Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/46.0.2490.86 Safari\/537.36","model":"","app_version":"00346615","lang":""};
+var SETTING_DOMAIN_LIVE = 'deezer.com';
+var SETTING_DOMAIN_COOKIE = '.deezer.com';
+var ENV = 'PROD';
+var SETTING_HOST = 'www.deezer.com';
+var HOST_CONTENT = 'http://cdn-content.deezer.com';
+var SETTING_LANG = 'en';
+var SETTING_LOCALE = 'en_GB';
+var SETTING_STATIC = 'http://e-cdn-files.deezer.com';
+var SETTING_HOST_SITE = 'http://www.deezer.com';
+var SETTING_HOST_LIVE = 'live.deezer.com';
+var SETTING_DOMAIN_IMG = 'http://e-cdn-images.deezer.com/images';
+var SETTING_HOST_UPLOAD = 'http://upload.deezer.com';
+var SETTING_HOST_CONNECT = 'http://connect.deezer.com';
+var SETTING_HOST_API = 'http://api.deezer.com';
+var SETTING_HOST_DEVELOPERS = 'http://developers.deezer.com';
+var SETTING_REFERER_UPLOAD = 'NY';
+var SETTING_DOMAIN_PAYMENT = 'https://payment.deezer.com';
+var SOUND_PREVIEW_GATEWAY = 'http://cdn-preview-{0}.deezer.com/stream/{1}-{2}.mp3';
+var HOST_STREAM = 'http://proxy-{0}.deezer.com/mobile/1/';
+var HOST_STREAM_CDN = 'http://cdn-proxy-{0}.deezer.com/mobile/1/';
+var HOST_PREVIEW = 'http://preview-{0}.deezer.com/stream/{1}-{2}.mp3';
+var CDN_RATIO = '100';
+var RESSOURCES = {
+	coreplayer3 : 'cache/swf/coreplayer3_1-18682a709e5d12a26c71e03b88c1d76c.swf',
+	appstudio : [['http://e-cdn-files.deezer.com/cache/css/appstudio-02cbbbdfe77c68147acee040ef17e154.css', 'css']],
+	dz : [["http:\/\/e-cdn-files.deezer.com\/cache\/js\/dzdeezer-312247dd2980ae6581e7bbe1489fc885.js","js"]],
+	cached : []
+};
+var STATIC_VERSION = '00346615';
+var IMAGE_VERSION = '0';
+var CONFIG_VERSION = '81';
+var SESSION_ID = 'nye60774920b855c06b101cc9b228ef57cf52ce6';
+var USER_TOKEN = 'tke5c20b0a5a22267c1e0d8c93d396ae79';
+var PLAYLIST_WELCOME_ID = '65489349';
+var COOKIES_BANNER = '';
+var USER = {
+USER_ID : 610170616,
+USER_PICTURE : 0,
+INSCRIPTION_DATE : '2014-12-03',
+TRY_AND_BUY : {
+	ACTIVE: '0',
+	DATE_START: '0000-00-00 00:00:00',
+	DATE_END: '0000-00-00 00:00:00',
+	PLATEFORM: 'none'
+},
+BLOG_NAME : 'awildedge', FIRSTNAME : '', LASTNAME : '', USER_PICTURE : '', USER_GENDER : 'F', USER_AGE : 2, PARTNERS : '0',
+TOOLBAR : [],
+OPTIONS : {"mobile_preview":true,"mobile_radio":true,"mobile_streaming":false,"mobile_streaming_duration":0,"mobile_offline":false,"mobile_hq":false,"mobile_lossless":false,"mobile_sound_quality":{"low":false,"standard":true,"high":false,"lossless":false},"mobile_audio_qualities":{"mobile_download":["low","standard"],"mobile_streaming":["low","standard"],"wifi_download":["low","standard"],"wifi_streaming":["low","standard"]},"mobile_default_download_on_mobile_network":true,"tablet_sound_quality":{"low":false,"standard":true,"high":false,"lossless":false},"tablet_audio_qualities":{"mobile_download":["low","standard"],"mobile_streaming":["low","standard"],"wifi_download":["low","standard"],"wifi_streaming":["low","standard"]},"tablet_default_download_on_mobile_network":true,"web_preview":true,"web_radio":true,"web_streaming":true,"web_streaming_duration":0,"web_offline":false,"web_hq":false,"web_lossless":false,"web_sound_quality":{"low":false,"standard":true,"high":false,"lossless":false},"ads_display":true,"ads_audio":true,"dj":false,"nb_devices":0,"radio_skips":6,"too_many_devices":false,"timestamp":1447616440,"web_streaming_used":0,"can_subscribe":true,"upgrade":{"type":"trial","offer":{"id":1,"name":"Deezer Premium+","description":"All the music you love: anytime, anywhere.","duration":15,"price":{"amount":"9.99","currency":"CAD","display":"CAD $9.99"}},"cta":{"label":"15 days FREE","label_extend":"Activate my 15 days free","log_name":"trial"}}},
+DEVICES_COUNT : 0,
+SETTING : {"global":{"language":"en","social":true,"popup_unload":false,"filter_explicit_lyrics":false,"is_kid":false,"onboarding":false},"site":{"livebar_state":"close","livebar_tab":"ticker","push_mobile":1447340996,"howto_step":0,"edito_tag":0,"display_confirm_discovery":0,"version":"5","player_fade":0,"player_hq":false,"player_shuffle":false},"twitter":{"share_comment":true,"share_favourite":true,"share_loved":true,"share_share":true},"facebook":{"share_comment":true,"share_favourite":true,"share_loved":true,"share_listen":true,"share_share":true},"google":{"share_comment":true,"share_favourite":true,"share_loved":true,"share_listen":true,"share_share":true},"notification_mail":{"share":false,"friend_follow":true,"playlist_comment":true,"playlist_follow":true,"artist_new_release":true,"artist_status":false,"new_message":true},"notification_mobile":{"share":true,"friend_follow":true,"playlist_comment":true,"playlist_follow":true,"artist_new_release":true,"artist_status":true,"new_message":true},"location":{"city":"Auckland","lat":-36.86669921875,"lon":174.76669311523,"source":"ip"},"newsletter":{"editor":true,"event":true,"game":true,"special_offer":true,"panel":true,"talk":true},"beta_user":{"ios":false,"android":false,"windowsphone":false,"windows":false},"tips":{"player":false,"flow":true,"add_to_library":false,"lyrics":2,"playlist_assistant":true,"playlist_assistant_suggest":true},"audio_quality_settings":{"preset":"balanced","download_on_mobile_network":true},"customer_message":{"tb_mobile":{"properties":[],"display_count":1,"last_display":"2015-11-12"}}},
+LASTFM : {},
+TWITTER : {},
+FACEBOOK : {
+	},
+GOOGLEPLUS : {
+	},
+FAVORITE_TAG : 113,
+ABTEST : {"first_click_mod":{"id":"first_click_mod","option":"A","behaviour":"3 streams \/ day"},"abtest_offerpage_trial":{"id":"abtest_offerpage_trial","option":"default","behaviour":"Wording d\u00e9couvrir"},"themed_radio":{"id":"themed_radio","option":"B","behaviour":"Start algo radio B if it exists, otherwise A"},"mix_live_clusters":{"id":"mix_live_cluster","option":"default","behaviour":"standard algo 1.1"},"profile_tag_clustering":{"id":"flow_live_clusters","option":"default","behaviour":"default tags aggregation in profile clustering"},"search_playlists":{"id":"search_playlists","option":"default","behaviour":"Default search playlist"},"new_home":{"id":"new_home","option":"layoutc","behaviour":"layout \"C\" of the new home"}}};
+var OFFER_ID = '0';
+var COUNTRY = 'CA';
+var CURRENT_DATE = '2015-11-15';
+var MIN_LEGAL_AGE = 1;
+var SERVER_TIMESTAMP = 1447616440;
+var SESSION_DURATION = 0;
+var AD_RULES = {"audio":{"default":{"start":1,"interval":3,"unit":"track"}},"display":{"interstitial":{"start":900,"interval":900,"unit":"sec"}},"big_native_ads_home":{"iphone":{"enabled":false},"ipad":{"enabled":false},"android":{"enabled":false},"android_tablet":{"enabled":false}}};
+var PLAYER_TOKEN = '7a6b2fe07a585a779b09014bf2df820e504d06632656d5208ea5e7d2064962a4a6e85c885d91eaadcebe68565a89f2b775e63ab8c9cf17dffcbd50b8562592b68b48512c09f96a80fe4379a0e6ad0b6ef540df857b50e5e6977e521c48ac47f019d1a0f3728596b3b5c7a2851c08a57f1ce7aa51594079443963742456a61e1cb91f5d802b1c57925f3d5b4550d409beb638feccc360c3653ff5e4fba63dd340c2f68792f9b18c274830246101dca63a0916828e1307ba3db2b49ab9b12017b4fc6428eeaae3f402d78259e53edbfd82d76ab5c3f9490c22faa589996e404a622d4d070b350d38048a59891450219ed82a689a047237588b91023f5e5cea32bc4abeeb561455d5caf9b0186353cd8b51474acd689f439a6991fd8acbd1e93ad1cc0cdc5a17dd2342ef39bd7cb37f0cb107d2ef55a55f02913b32cc2d180833495e3449261499e3b80ac1571dee055fc1';
+var DZPS = false;
+var LOG_TYPE = 'internal';
+var incr = 0;
+var incrsquare = 0;
+var checkForm = 'ea400927b04dae8267c60d85d630a388';
+var OFFLINE = !window.navigator.onLine;
+var ads_focus_value = true;
+var redirect_fb = '';
+var FROM_ONBOARDING = false;
+var YOUTUBE = {
+	URL: 'https://www.youtube.com/deezer',
+	PLAYLIST: 'PLELa7aiRjdR725uH2OW2Laz7XuA0iA2BE'
+};
+var DEEZER_DRIVE_DOWNLOAD = 'http://dzr.fm/download';
+var WIN8_APP_DOWNLOAD = 'http://apps.microsoft.com/windows/app/deezer/e48b595e-b20a-4eb3-968c-c20b2cadaa1e?';
+var CHROMECAST = {
+	ID: '28BE5D9A',
+	NAMESPACE: 'urn:x-cast:com.dz.player'
+};
+var DIRECTION = "ltr";
+
+var CUSTO = "";
+var COBRANDING = 'none';
+var DATE_FORMAT = 'Y-m-d';
+var LOG_CONTEXT = {"track_page":"track","album_page":"album","show_page":"show","playlist_page":"playlist","downloads_page":"downloads","personalsong_page":"personal_song","radio_page":"radio","smartradio_page":"artist","search_page":"search","history_page":"history","purchase_page":"purchase","inapp_page":"inapp","collection_track":"track","collection_playlist":"playlist","collection_album":"album","collection_radio":"radio","profile_tracks":"track","profile_playlists":"playlist","profile_albums":"album","profile_shows":"show","profile_top_tracks":"track","profile_top_albums":"album","profile_top_shows":"show","profile_radios":"radio","profile_top":"profile","profile_user_radio":"user","artist_top":"track","artist_discography":"album","artist_smartradio":"artist","album_discography":"album","tops_album":"album","tops_track":"track","tops_playlist":"playlist","ticker_track":"track","ticker_playlist":"playlist","ticker_album":"album","player_default_playlist":"playlist","facebook_track":"track","facebook_artist":"track","loved_page":"loved","notification_track":"track","notification_playlist":"playlist","notification_album":"album","notification_artistradio":"artist","notification_genreradio":"radio","feed_track":"track","feed_album":"album","feed_playlist":"playlist","feed_smartradio":"artist","feed_radio":"radio","feed_show":"show","feed_user_radio":"user","explore_picks_album":"album","explore_releases_album":"album","explore_region_album":"album","explore_picks_show":"show","discovery_radio":"radio","discovery_smartradio":"artist","feature_smartradio":"artist","playlist_radio":"playlist_radio","suggest_track":"track","suggest_album":"album","suggest_playlist":"playlist","suggest_artist":"artist","suggest_show":"show","menu_panel_album":"album","menu_panel_playlist":"playlist","menu_panel_queue_list":"track","menu_player":"track","search_album":"album","search_show":"show","search_playlist":"playlist","artist_similar_playlist":"playlist","album_similar_playlist":"playlist","playlist_api":"playlist","track_api":"track","album_api":"album","artist_api":"artist","user_api":"user","radio_api":"radio","episode_api":"episode","home_user_radio":"user","home_album":"album","home_playlist":"playlist","home_radio":"radio","home_artist_radio":"artist","home_track":"track","home_show":"show","episode_page":"episode","talk_show_page":"show","talk_suggest_show":"show","talk_search_show":"show","talk_profile_show":"show","talk_explore":"show"};
+var PLAYER_INIT = {
+	type: 'player_default_playlist',
+	data: {"data":[{"SNG_ID":"111780394","PRODUCT_TRACK_ID":"125331671","UPLOAD_ID":0,"SNG_TITLE":"Latch","ART_ID":"1097709","PROVIDER_ID":"4","ART_NAME":"Sam Smith","ARTISTS":[{"ART_ID":"1097709","ROLE_ID":"0","ART_NAME":"Sam Smith","ART_PICTURE":"1501c577594a5fda93639640cd8c6147","SMARTRADIO":"1","RANK":"950117","__TYPE__":"artist"}],"ALB_ID":"11603598","ALB_TITLE":"In The Lonely Hour","TYPE":0,"MD5_ORIGIN":"7eff7aed44a84f8997cc5c2ee783fad6","VIDEO":false,"DURATION":"223","ALB_PICTURE":"231c66c0ed260c708163eff3bb8458da","ART_PICTURE":"1501c577594a5fda93639640cd8c6147","RANK_SNG":"608624","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1788028","FILESIZE_MP3_128":"3576057","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"8940146","FILESIZE":"3576057","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"12","VERSION":"(Acoustic)","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"GBUM71308970","DATE_ADD":1446822428,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Sam Smith"],"author":["Sam Smith","Howard Lawrence","Guy Lawrence","Jimmy Napes"],"composer":["Sam Smith","Howard Lawrence","Guy Lawrence","Jimmy Napes"],"musicpublisher":["Naughty Words","Salli Isaak Songs Ltd","Stellar Songs","Universal Music Publishing"]},"LYRICS_ID":0,"FALLBACK":{"SNG_ID":"111031430","PRODUCT_TRACK_ID":"125331671","UPLOAD_ID":0,"SNG_TITLE":"Latch","ART_ID":"1097709","PROVIDER_ID":"111","ART_NAME":"Sam Smith","ARTISTS":[{"ART_ID":"1097709","ROLE_ID":"0","ART_NAME":"Sam Smith","ART_PICTURE":"1501c577594a5fda93639640cd8c6147","SMARTRADIO":"1","RANK":"950117","__TYPE__":"artist"}],"ALB_ID":"11546866","ALB_TITLE":"In The Lonely Hour","TYPE":0,"MD5_ORIGIN":"b879db7ba2d5e5668318386ef73989d2","VIDEO":false,"DURATION":"223","ALB_PICTURE":"39cd5c9a3c5e4c2d608ed94c1db54e40","ART_PICTURE":"1501c577594a5fda93639640cd8c6147","RANK_SNG":"478276","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1788028","FILESIZE_MP3_128":"3576057","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"8940146","FILESIZE":"3576057","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"12","VERSION":"(Acoustic)","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBUM71308970","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Sam Smith"],"composer":["Howard Lawrence","Guy Lawrence","Sam Smith","Jimmy Napes"]},"LYRICS_ID":"102712","__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"110918818","PRODUCT_TRACK_ID":"302216921","UPLOAD_ID":0,"SNG_TITLE":"Galapagos","ART_ID":"420337","PROVIDER_ID":"7","ART_NAME":"Kakkmaddafakka","ARTISTS":[{"ART_ID":"420337","ROLE_ID":"0","ART_NAME":"Kakkmaddafakka","ART_PICTURE":"da2bd56b0b2bc9b86b612a45ad47c453","SMARTRADIO":"1","RANK":"427050","__TYPE__":"artist"}],"ALB_ID":"11535276","ALB_TITLE":"KMF","TYPE":0,"MD5_ORIGIN":"7e596cfb389ecb639dc70609a46db7fa","VIDEO":false,"DURATION":"188","ALB_PICTURE":"84c5c5ef1e78e28849abf8b0b35c2c1c","ART_PICTURE":"da2bd56b0b2bc9b86b612a45ad47c453","RANK_SNG":"364245","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1506323","FILESIZE_MP3_128":"3012648","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"7531623","FILESIZE":"3012648","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"NODLG1501010","DATE_ADD":1447084496,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Kakkmaddafakka"],"lyricist":["Vera Kleppe","Axel Vindenes"],"composer":["Axel Vindenes"]},"LYRICS_ID":0,"__TYPE__":"song"},{"SNG_ID":"111780462","PRODUCT_TRACK_ID":"301986291","UPLOAD_ID":0,"SNG_TITLE":"Aftertaste","ART_ID":"311820","PROVIDER_ID":"4","ART_NAME":"Ellie Goulding","ARTISTS":[{"ART_ID":"311820","ROLE_ID":"0","ART_NAME":"Ellie Goulding","ART_PICTURE":"7cb51cc348a5f81a5d641b2ee2887cde","SMARTRADIO":"1","RANK":"979871","__TYPE__":"artist"}],"ALB_ID":"11603606","ALB_TITLE":"Delirium","TYPE":0,"MD5_ORIGIN":"8ccc4e7985e92d789e75039f78acb8ab","VIDEO":false,"DURATION":"226","ALB_PICTURE":"b765b7aff1bd229bd90daf3a42cbdb25","ART_PICTURE":"7cb51cc348a5f81a5d641b2ee2887cde","RANK_SNG":"831970","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1808926","FILESIZE_MP3_128":"3617853","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9044635","FILESIZE":"3617853","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"2","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"GBUM71505562","DATE_ADD":1446822384,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Ellie Goulding"],"author":["Ellie Goulding","Greg Kurstin"],"composer":["Ellie Goulding","Greg Kurstin"],"musicpublisher":["Global Talent Publishing","Kurstin Music \/ EMI April Music, Inc. (ASCAP)"]},"LYRICS_ID":0,"FALLBACK":{"SNG_ID":"111039188","PRODUCT_TRACK_ID":"301986291","UPLOAD_ID":0,"SNG_TITLE":"Aftertaste","ART_ID":"311820","PROVIDER_ID":"111","ART_NAME":"Ellie Goulding","ARTISTS":[{"ART_ID":"311820","ROLE_ID":"0","ART_NAME":"Ellie Goulding","ART_PICTURE":"7cb51cc348a5f81a5d641b2ee2887cde","SMARTRADIO":"1","RANK":"979871","__TYPE__":"artist"}],"ALB_ID":"11547762","ALB_TITLE":"Delirium","TYPE":0,"MD5_ORIGIN":"597c67eb7679cddf53b6f0936e531b1b","VIDEO":false,"DURATION":"226","ALB_PICTURE":"ae88fe7aae1ecdd23377edfd8f285a0c","ART_PICTURE":"7cb51cc348a5f81a5d641b2ee2887cde","RANK_SNG":"472323","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1808926","FILESIZE_MP3_128":"3617853","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9044635","FILESIZE":"3617853","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"2","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBUM71505562","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Ellie Goulding"],"composer":["Greg Kurstin","Ellie Goulding"]},"LYRICS_ID":0,"__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"111482314","PRODUCT_TRACK_ID":"303127581","UPLOAD_ID":0,"SNG_TITLE":"Adventure Of A Lifetime","ART_ID":"892","PROVIDER_ID":"3","ART_NAME":"Coldplay","ARTISTS":[{"ART_ID":"892","ROLE_ID":"0","ART_NAME":"Coldplay","ART_PICTURE":"dbcf04678958e66a7855d507cbd1c5f0","SMARTRADIO":"1","RANK":"942457","__TYPE__":"artist"}],"ALB_ID":"11580496","ALB_TITLE":"Adventure Of A Lifetime","TYPE":0,"MD5_ORIGIN":"305da5c185810cc720e470b361a86737","VIDEO":false,"DURATION":"263","ALB_PICTURE":"6c217fb56f7f7961c634d6e9bca9ddae","ART_PICTURE":"dbcf04678958e66a7855d507cbd1c5f0","RANK_SNG":"938691","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"2110901","FILESIZE_MP3_128":"4221804","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"10554513","FILESIZE":"4221804","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBAYE1500981","DATE_ADD":1446822231,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Coldplay"],"backing vocals":["Apple Martin","Merry Clayton","Moses Martin"],"engineer":["Bill Rahko","Daniel Green","Miles Walker","Robin Baynton"],"all instruments":["Chris Martin","Guy Berryman","Jonny Buckland","Will Champion"],"vocals":["Chris Martin","Will Champion"],"composer":["Chris Martin","Guy Berryman","Jonny Buckland","Mikkel S. Eriksen","Tor Erik Hermansen","Will Champion"],"mixer":["Daniela Rivera","Phil Tan"],"masterer":["Emily Lazar"],"keyboards":["Mikkel S. Eriksen","Tor Erik Hermansen"],"programmer":["Mikkel S. Eriksen","Tor Erik Hermansen"],"producer":["Stargate for 45th & 3rd Music LLC"]},"LYRICS_ID":0,"__TYPE__":"song"},{"SNG_ID":"108051968","PRODUCT_TRACK_ID":"296956581","UPLOAD_ID":0,"SNG_TITLE":"Kamikaze","ART_ID":"4333887","PROVIDER_ID":"2","ART_NAME":"M\u00d8","ARTISTS":[{"ART_ID":"4333887","ROLE_ID":"0","ART_NAME":"M\u00d8","ART_PICTURE":"df20d8df1378be27135da329c0e10461","SMARTRADIO":"1","RANK":"844993","__TYPE__":"artist"},{"ART_ID":"4333887","ROLE_ID":"5","ART_NAME":"M\u00d8","ART_PICTURE":"df20d8df1378be27135da329c0e10461","SMARTRADIO":"1","RANK":"844993","__TYPE__":"artist"}],"ALB_ID":"11269334","ALB_TITLE":"Kamikaze","TYPE":0,"MD5_ORIGIN":"c77c2dc9985e6622c19f09fcc75dc88e","VIDEO":false,"DURATION":"211","ALB_PICTURE":"b3c664bb12832197330484b125bba327","ART_PICTURE":"df20d8df1378be27135da329c0e10461","RANK_SNG":"961462","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1714467","FILESIZE_MP3_128":"3428936","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"8572342","FILESIZE":"3428936","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBARL1501371","DATE_ADD":1445248688,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"associatedperformer":["M\u00d8"],"mainartist":["M\u00d8"],"composer":["Karen Marie \u00d8rsted","Mads Damsgaard Kristiansen","Thomas Pentz","Philip Meckseper","Boaz de Jong"],"lyricist":["Karen Marie \u00d8rsted","Mads Damsgaard Kristiansen","Thomas Pentz","Philip Meckseper","Boaz de Jong"],"vocal":["Karen Marie \u00d8rsted"],"programmer":["Mads Damsgaard Kristiansen","Thomas Pentz","Philip Meckseper","Boaz de Jong"],"producer":["Diplo"],"mixing engineer":["Manny Marroquin"],"assistant engineer":["Chris Galland","Ike Schultz"],"mastering engineer":["John Davies"]},"LYRICS_ID":0,"__TYPE__":"song"},{"SNG_ID":"109700126","PRODUCT_TRACK_ID":"302022351","UPLOAD_ID":0,"SNG_TITLE":"Color of My Lips","ART_ID":"1396006","PROVIDER_ID":"2","ART_NAME":"Omi","ARTISTS":[{"ART_ID":"1396006","ROLE_ID":"0","ART_NAME":"Omi","ART_PICTURE":"a5bcab4240fc8396c44b7e0eee795548","SMARTRADIO":"1","RANK":"911763","__TYPE__":"artist"},{"ART_ID":"116337","ROLE_ID":"5","ART_NAME":"Busy Signal","ART_PICTURE":"fd33a358095c33079f7fe1b7c099ddf2","SMARTRADIO":"1","RANK":"789200","__TYPE__":"artist"},{"ART_ID":"1396006","ROLE_ID":"5","ART_NAME":"Omi","ART_PICTURE":"a5bcab4240fc8396c44b7e0eee795548","SMARTRADIO":"1","RANK":"911763","__TYPE__":"artist"},{"ART_ID":"9067990","ROLE_ID":"5","ART_NAME":"OMI feat. Busy Signal","ART_PICTURE":"","SMARTRADIO":"0","RANK":"100000","__TYPE__":"artist"}],"ALB_ID":"11428452","ALB_TITLE":"Me 4 U","TYPE":0,"MD5_ORIGIN":"155402227375f221365b6990006e2eec","VIDEO":false,"DURATION":"190","ALB_PICTURE":"d3af4b1a8a958060d0b0ca3ce10d8a7a","ART_PICTURE":"a5bcab4240fc8396c44b7e0eee795548","RANK_SNG":"781476","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1528475","FILESIZE_MP3_128":"3056952","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"7642382","FILESIZE":"3056952","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"8","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"USUS11500073","DATE_ADD":1445249079,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"associatedperformer":["Omi","Busy Signal","OMI feat. Busy Signal"],"mainartist":["Omi"],"featuredartist":["Busy Signal"],"vocal":["Busy Signal","Omar Pasley"],"composer":["Omar Pasley","Clifton Dillon","Reanno Gordon","Ryan Dillon"],"lyricist":["Omar Pasley"],"producer":["Clifton Dillon","Ryan Dillon"]},"LYRICS_ID":"1684164","__TYPE__":"song"},{"SNG_ID":"109090896","PRODUCT_TRACK_ID":"297870021","UPLOAD_ID":0,"SNG_TITLE":"The Love Within","ART_ID":"382","PROVIDER_ID":"30","ART_NAME":"Bloc Party","ARTISTS":[{"ART_ID":"382","ROLE_ID":"0","ART_NAME":"Bloc Party","ART_PICTURE":"ef9dcae1a6ac90bcee847b0ddd0d3676","SMARTRADIO":"1","RANK":"646808","__TYPE__":"artist"}],"ALB_ID":"11367284","ALB_TITLE":"The Love Within","TYPE":0,"MD5_ORIGIN":"1699437a86c4938c387865a81471f06f","VIDEO":false,"DURATION":"277","ALB_PICTURE":"24e9c1483e91d6b1ec27214e126f0c96","ART_PICTURE":"ef9dcae1a6ac90bcee847b0ddd0d3676","RANK_SNG":"772401","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"2222079","FILESIZE_MP3_128":"4444159","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"11110399","FILESIZE":"4444159","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"GB5KW1501709","DATE_ADD":0,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Bloc Party"],"mixer":["David Wrench"],"producer":["Roy Kerr","Tim Bran"],"composer":["Kele Okereke","Russell Lissack"],"musicpublisher":["Sony\/ATV Music Publishing"]},"LYRICS_ID":0,"FALLBACK":{"SNG_ID":"109517700","PRODUCT_TRACK_ID":"297870021","UPLOAD_ID":0,"SNG_TITLE":"The Love Within","ART_ID":"382","PROVIDER_ID":"111","ART_NAME":"Bloc Party","ARTISTS":[{"ART_ID":"382","ROLE_ID":"0","ART_NAME":"Bloc Party","ART_PICTURE":"ef9dcae1a6ac90bcee847b0ddd0d3676","SMARTRADIO":"1","RANK":"646808","__TYPE__":"artist"}],"ALB_ID":"11409100","ALB_TITLE":"The Love Within","TYPE":0,"MD5_ORIGIN":"804dfd79c85bd41a0a304b3bf768cdff","VIDEO":false,"DURATION":"277","ALB_PICTURE":"d74c1b39c0d83a40fb11b80a9c71b391","ART_PICTURE":"ef9dcae1a6ac90bcee847b0ddd0d3676","RANK_SNG":"547776","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"2221034","FILESIZE_MP3_128":"4442069","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"11105174","FILESIZE":"4442069","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GB5KW1501709","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Bloc Party"],"composer":["Kele Okereke","Russell Lissack"]},"LYRICS_ID":0,"__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"109623286","PRODUCT_TRACK_ID":"299922901","UPLOAD_ID":0,"SNG_TITLE":"Majorette","ART_ID":"75055","PROVIDER_ID":"30","ART_NAME":"Beach House","ARTISTS":[{"ART_ID":"75055","ROLE_ID":"0","ART_NAME":"Beach House","ART_PICTURE":"1f8ecd077e96fb25a41a7e0d32178877","SMARTRADIO":"1","RANK":"454157","__TYPE__":"artist"}],"ALB_ID":"11419838","ALB_TITLE":"Thank Your Lucky Stars","TYPE":0,"MD5_ORIGIN":"50bca6177f2e843c855e6b73f3cc547a","VIDEO":false,"DURATION":"240","ALB_PICTURE":"bb0fafe47000325074c0a3688a1a64c7","ART_PICTURE":"1f8ecd077e96fb25a41a7e0d32178877","RANK_SNG":"772449","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1926581","FILESIZE_MP3_128":"3853164","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9632913","FILESIZE":"3853164","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"USSUB1514201","DATE_ADD":1445248778,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Beach House"],"mixer":["Beach House","Manuel Calderone"],"producer":["Beach House","Chris Coady"],"composer":["Alex Scally","Victoria Legrand"],"lyricist":["Victoria Legrand"],"musicpublisher":["BMG Chrysalis"]},"LYRICS_ID":0,"FALLBACK":{"SNG_ID":"109310388","PRODUCT_TRACK_ID":"299362221","UPLOAD_ID":0,"SNG_TITLE":"Majorette","ART_ID":"75055","PROVIDER_ID":"3","ART_NAME":"Beach House","ARTISTS":[{"ART_ID":"75055","ROLE_ID":"0","ART_NAME":"Beach House","ART_PICTURE":"1f8ecd077e96fb25a41a7e0d32178877","SMARTRADIO":"1","RANK":"454157","__TYPE__":"artist"}],"ALB_ID":"11389902","ALB_TITLE":"Thank Your Lucky Stars","TYPE":0,"MD5_ORIGIN":"f2e5b2748a8229a844f6d7cb8a36ba36","VIDEO":false,"DURATION":"240","ALB_PICTURE":"90c0e645b7a8a097baa0720582602507","ART_PICTURE":"1f8ecd077e96fb25a41a7e0d32178877","RANK_SNG":"591504","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1926581","FILESIZE_MP3_128":"3853164","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9632913","FILESIZE":"3853164","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"USSUB1514201","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Beach House"]},"LYRICS_ID":0,"__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"107351020","PRODUCT_TRACK_ID":"290914191","UPLOAD_ID":0,"SNG_TITLE":"Willing & Able","ART_ID":"409796","PROVIDER_ID":"4","ART_NAME":"Disclosure","ARTISTS":[{"ART_ID":"409796","ROLE_ID":"0","ART_NAME":"Disclosure","ART_PICTURE":"5ca530594e6e844df3cdf743c85ff7f0","SMARTRADIO":"1","RANK":"898538","__TYPE__":"artist"},{"ART_ID":"5487123","ROLE_ID":"5","ART_NAME":"Kwabs","ART_PICTURE":"02c70c3929046dc59c9ada02732bfd54","SMARTRADIO":"1","RANK":"824354","__TYPE__":"artist"}],"ALB_ID":"11192644","ALB_TITLE":"Caracal","TYPE":0,"MD5_ORIGIN":"2f0a854fff188b57e28198175ac657b6","VIDEO":false,"DURATION":"293","ALB_PICTURE":"3f83505decbef336626d7d5db2914ec8","ART_PICTURE":"5ca530594e6e844df3cdf743c85ff7f0","RANK_SNG":"832012","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"2342660","FILESIZE_MP3_128":"4685321","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"11713305","FILESIZE":"4685321","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"5","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"GBUM71503567","DATE_ADD":1445248799,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Disclosure"],"featuredartist":["Kwabs"],"composer":["Guy Lawrence","Howard Lawrence","Kwabena Adjepong","Finlay Robson","James Napier"],"author":["Guy Lawrence","Howard Lawrence","Kwabena Adjepong","Finlay Robson","James Napier"],"musicpublisher":["Method Paper \/ Universal Music Publishing","Salli Isaak Songs Ltd","Sony ATV","UMPG"]},"LYRICS_ID":"1674806","FALLBACK":{"SNG_ID":"105506062","PRODUCT_TRACK_ID":"290914191","UPLOAD_ID":0,"SNG_TITLE":"Willing & Able","ART_ID":"409796","PROVIDER_ID":"111","ART_NAME":"Disclosure","ARTISTS":[{"ART_ID":"409796","ROLE_ID":"0","ART_NAME":"Disclosure","ART_PICTURE":"5ca530594e6e844df3cdf743c85ff7f0","SMARTRADIO":"1","RANK":"898538","__TYPE__":"artist"},{"ART_ID":"5487123","ROLE_ID":"5","ART_NAME":"Kwabs","ART_PICTURE":"02c70c3929046dc59c9ada02732bfd54","SMARTRADIO":"1","RANK":"824354","__TYPE__":"artist"}],"ALB_ID":"10991192","ALB_TITLE":"Willing & Able","TYPE":0,"MD5_ORIGIN":"0911ee3998dbfd7cbc7d256f99d4f886","VIDEO":false,"DURATION":"293","ALB_PICTURE":"9e89ee58bcb67bcf81539b906e996551","ART_PICTURE":"5ca530594e6e844df3cdf743c85ff7f0","RANK_SNG":"675638","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"2342660","FILESIZE_MP3_128":"4685321","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"11713305","FILESIZE":"4685321","MEDIA_VERSION":"0","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBUM71503567","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Disclosure"],"featuring":["Kwabs"],"composer":["Guy Lawrence","Howard Lawrence","Kwabena Adjepong","Finlay Robson","James Napier"]},"LYRICS_ID":"1674806","__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"109725082","PRODUCT_TRACK_ID":"299971351","UPLOAD_ID":0,"SNG_TITLE":"These Walls","ART_ID":"525046","PROVIDER_ID":"4","ART_NAME":"Kendrick Lamar","ARTISTS":[{"ART_ID":"525046","ROLE_ID":"0","ART_NAME":"Kendrick Lamar","ART_PICTURE":"9efd1d48a5328e2dd82779ca8de9ba8c","SMARTRADIO":"1","RANK":"801868","__TYPE__":"artist"},{"ART_ID":"4988","ROLE_ID":"5","ART_NAME":"Bilal","ART_PICTURE":"2cb8d2201d4a473f70b1396e24bbeab5","SMARTRADIO":"1","RANK":"495855","__TYPE__":"artist"},{"ART_ID":"546520","ROLE_ID":"5","ART_NAME":"Thundercat","ART_PICTURE":"4d5dec5dcc2e9c7bbd78286fc47b57d7","SMARTRADIO":"1","RANK":"449966","__TYPE__":"artist"},{"ART_ID":"1150659","ROLE_ID":"5","ART_NAME":"Anna Wise","ART_PICTURE":"","SMARTRADIO":"0","RANK":"512091","__TYPE__":"artist"}],"ALB_ID":"11431238","ALB_TITLE":"These Walls","TYPE":0,"MD5_ORIGIN":"8460fa46ab068e49b472265d52226d01","VIDEO":false,"DURATION":"249","ALB_PICTURE":"5c163a572dc76597231aa942375dec89","ART_PICTURE":"9efd1d48a5328e2dd82779ca8de9ba8c","RANK_SNG":"791943","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1989902","FILESIZE_MP3_128":"3979806","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9949517","FILESIZE":"3979806","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"1","RIGHTS":{},"ISRC":"USUM71516422","DATE_ADD":1445248872,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Kendrick Lamar"],"featuredartist":["Bilal","Anna Wise","Thundercat"],"composer":["K. Duckworth","T. Martin","L. Dopson","R. McKinney","J. Fauntleroy"],"author":["K. Duckworth","T. Martin","L. Dopson","R. McKinney","J. Fauntleroy"]},"LYRICS_ID":"1611152","FALLBACK":{"SNG_ID":"109726566","PRODUCT_TRACK_ID":"299971351","UPLOAD_ID":0,"SNG_TITLE":"These Walls","ART_ID":"525046","PROVIDER_ID":"111","ART_NAME":"Kendrick Lamar","ARTISTS":[{"ART_ID":"525046","ROLE_ID":"0","ART_NAME":"Kendrick Lamar","ART_PICTURE":"9efd1d48a5328e2dd82779ca8de9ba8c","SMARTRADIO":"1","RANK":"801868","__TYPE__":"artist"},{"ART_ID":"4988","ROLE_ID":"5","ART_NAME":"Bilal","ART_PICTURE":"2cb8d2201d4a473f70b1396e24bbeab5","SMARTRADIO":"1","RANK":"495855","__TYPE__":"artist"},{"ART_ID":"546520","ROLE_ID":"5","ART_NAME":"Thundercat","ART_PICTURE":"4d5dec5dcc2e9c7bbd78286fc47b57d7","SMARTRADIO":"1","RANK":"449966","__TYPE__":"artist"},{"ART_ID":"1150659","ROLE_ID":"5","ART_NAME":"Anna Wise","ART_PICTURE":"","SMARTRADIO":"0","RANK":"512091","__TYPE__":"artist"}],"ALB_ID":"11431506","ALB_TITLE":"These Walls","TYPE":0,"MD5_ORIGIN":"bb1904c8c8302fbf6d41d6896995b857","VIDEO":false,"DURATION":"249","ALB_PICTURE":"e79789e6f2a10dc5bcd284539a646ecd","ART_PICTURE":"9efd1d48a5328e2dd82779ca8de9ba8c","RANK_SNG":"562635","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1989902","FILESIZE_MP3_128":"3979806","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9949517","FILESIZE":"3979806","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"1","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"USUM71516422","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Kendrick Lamar"],"featured_artist":["Bilal","Anna Wise","Thundercat"],"composer":["K. Duckworth","T. Martin","L. Dopson","R. McKinney","J. Fauntleroy"]},"LYRICS_ID":"1611152","__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"109527236","PRODUCT_TRACK_ID":"299723331","UPLOAD_ID":0,"SNG_TITLE":"Whisper to Me","ART_ID":"4893","PROVIDER_ID":"10","ART_NAME":"General Elektriks","ARTISTS":[{"ART_ID":"4893","ROLE_ID":"0","ART_NAME":"General Elektriks","ART_PICTURE":"fc6478d5ff86691ac8a4ddd647b6edd9","SMARTRADIO":"1","RANK":"567033","__TYPE__":"artist"}],"ALB_ID":"11410068","ALB_TITLE":"Whisper to Me - Single","TYPE":0,"MD5_ORIGIN":"6b3d2290bd8b5fa57764be36e5216db3","VIDEO":false,"DURATION":"274","ALB_PICTURE":"1eda6c0ca6d93e6731971848e0e48cfa","ART_PICTURE":"fc6478d5ff86691ac8a4ddd647b6edd9","RANK_SNG":"876803","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"2194493","FILESIZE_MP3_128":"4388988","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"10972472","FILESIZE":"4388988","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"USR8J1500003","DATE_ADD":1445248747,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["General Elektriks"],"lyricist":["Herv\u00e9 Salters"],"composer":["Herv\u00e9 Salters"]},"LYRICS_ID":0,"__TYPE__":"song"},{"SNG_ID":"109703220","PRODUCT_TRACK_ID":"299675951","UPLOAD_ID":0,"SNG_TITLE":"Old Ways","ART_ID":"193875","PROVIDER_ID":"4","ART_NAME":"Demi Lovato","ARTISTS":[{"ART_ID":"193875","ROLE_ID":"0","ART_NAME":"Demi Lovato","ART_PICTURE":"4484a08cb9874e4f5e52710cf5bacb05","SMARTRADIO":"1","RANK":"822553","__TYPE__":"artist"}],"ALB_ID":"11428814","ALB_TITLE":"Confident","TYPE":0,"MD5_ORIGIN":"32322c59aa3f1f4453e13f946ad1f2d6","VIDEO":false,"DURATION":"204","ALB_PICTURE":"7e559086c775eece3bd9db9175db553d","ART_PICTURE":"4484a08cb9874e4f5e52710cf5bacb05","RANK_SNG":"817082","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1634010","FILESIZE_MP3_128":"3268021","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"8170056","FILESIZE":"3268021","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"3","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"USHR11536753","DATE_ADD":0,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Demi Lovato"],"composer":["Olivia Waithe","Jason Evigan","Scott Hoffman"],"author":["Olivia Waithe","Jason Evigan","Scott Hoffman"],"musicpublisher":["BMG Platinum Songs \/ Bad Robot","Babydaddy Songs (ASCAP)","Sony\/ATV Songs LLC \/ Underground Sunshine Music (BMI)"]},"LYRICS_ID":"1684184","FALLBACK":{"SNG_ID":"109511344","PRODUCT_TRACK_ID":"299675951","UPLOAD_ID":0,"SNG_TITLE":"Old Ways","ART_ID":"193875","PROVIDER_ID":"111","ART_NAME":"Demi Lovato","ARTISTS":[{"ART_ID":"193875","ROLE_ID":"0","ART_NAME":"Demi Lovato","ART_PICTURE":"4484a08cb9874e4f5e52710cf5bacb05","SMARTRADIO":"1","RANK":"822553","__TYPE__":"artist"}],"ALB_ID":"11408372","ALB_TITLE":"Confident","TYPE":0,"MD5_ORIGIN":"8ce7fb6276ebef97d77d9560f031e144","VIDEO":false,"DURATION":"204","ALB_PICTURE":"d77c96a1a0e0c33c97fd8f74a4d893cd","ART_PICTURE":"4484a08cb9874e4f5e52710cf5bacb05","RANK_SNG":"412080","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1634010","FILESIZE_MP3_128":"3268021","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"8170056","FILESIZE":"3268021","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"3","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"USHR11536753","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Demi Lovato"],"composer":["Olivia Waithe","Jason Evigan","Scott Hoffman"]},"LYRICS_ID":"1684184","__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"109701732","PRODUCT_TRACK_ID":"147620061","UPLOAD_ID":0,"SNG_TITLE":"Come And Get It","ART_ID":"1141019","PROVIDER_ID":"4","ART_NAME":"John Newman","ARTISTS":[{"ART_ID":"1141019","ROLE_ID":"0","ART_NAME":"John Newman","ART_PICTURE":"6d1b71ba4bf0e92743de5e9d4aaa09ae","SMARTRADIO":"1","RANK":"928418","__TYPE__":"artist"}],"ALB_ID":"11428644","ALB_TITLE":"Revolve","TYPE":0,"MD5_ORIGIN":"e7e6b1f8eb2249735373aa4dbf36c558","VIDEO":false,"DURATION":"184","ALB_PICTURE":"775204e1dabd37bb1a0ed1f7de74eb95","ART_PICTURE":"6d1b71ba4bf0e92743de5e9d4aaa09ae","RANK_SNG":"881317","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1473305","FILESIZE_MP3_128":"2946611","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"7366529","FILESIZE":"2946611","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"5","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"GBUM71502450","DATE_ADD":0,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["John Newman"],"composer":["John Newman","Greg Kurstin"],"author":["John Newman","Greg Kurstin"],"musicpublisher":["B-Unique","Sony \/ ATV Music Publishing"]},"LYRICS_ID":"1636708","FALLBACK":{"SNG_ID":"101517818","PRODUCT_TRACK_ID":"147620061","UPLOAD_ID":0,"SNG_TITLE":"Come And Get It","ART_ID":"1141019","PROVIDER_ID":"111","ART_NAME":"John Newman","ARTISTS":[{"ART_ID":"1141019","ROLE_ID":"0","ART_NAME":"John Newman","ART_PICTURE":"6d1b71ba4bf0e92743de5e9d4aaa09ae","SMARTRADIO":"1","RANK":"928418","__TYPE__":"artist"}],"ALB_ID":"10539132","ALB_TITLE":"Come And Get It","TYPE":0,"MD5_ORIGIN":"421a5ea6ce2fe611992c4d1e98c182ce","VIDEO":false,"DURATION":"184","ALB_PICTURE":"83195b88b19df4ad321b5d59277180b6","ART_PICTURE":"6d1b71ba4bf0e92743de5e9d4aaa09ae","RANK_SNG":"829116","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1473305","FILESIZE_MP3_128":"2946611","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"7366529","FILESIZE":"2946611","MEDIA_VERSION":"0","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBUM71502450","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["John Newman"],"composer":["John Newman","Greg Kurstin"]},"LYRICS_ID":"1636708","__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"109703656","PRODUCT_TRACK_ID":"121877431","UPLOAD_ID":0,"SNG_TITLE":"Conquistador","ART_ID":"210977","PROVIDER_ID":"2","ART_NAME":"Gesaffelstein","ARTISTS":[{"ART_ID":"2047","ROLE_ID":"0","ART_NAME":"Jean-Michel Jarre","ART_PICTURE":"3ea16ff83d0129f38755b0c2454e1731","SMARTRADIO":"1","RANK":"517742","__TYPE__":"artist"},{"ART_ID":"210977","ROLE_ID":"0","ART_NAME":"Gesaffelstein","ART_PICTURE":"eddd8caf3811284f73620497004786f8","SMARTRADIO":"1","RANK":"565063","__TYPE__":"artist"},{"ART_ID":"2047","ROLE_ID":"5","ART_NAME":"Jean-Michel Jarre","ART_PICTURE":"3ea16ff83d0129f38755b0c2454e1731","SMARTRADIO":"1","RANK":"517742","__TYPE__":"artist"},{"ART_ID":"210977","ROLE_ID":"5","ART_NAME":"Gesaffelstein","ART_PICTURE":"eddd8caf3811284f73620497004786f8","SMARTRADIO":"1","RANK":"565063","__TYPE__":"artist"},{"ART_ID":"8118747","ROLE_ID":"5","ART_NAME":"Jean-Michel Jarre & Gesaffelstein","ART_PICTURE":"","SMARTRADIO":"0","RANK":"100000","__TYPE__":"artist"}],"ALB_ID":"11428856","ALB_TITLE":"Electronica 1: The Time Machine","TYPE":0,"MD5_ORIGIN":"d379ed2b67df9abd383ede0ffe19b58b","VIDEO":false,"DURATION":"186","ALB_PICTURE":"dab1e46ea97081528c373b3943fb8b7f","ART_PICTURE":"eddd8caf3811284f73620497004786f8","RANK_SNG":"759194","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1495874","FILESIZE_MP3_128":"2991750","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"7479378","FILESIZE":"2991750","MEDIA_VERSION":"0","DISK_NUMBER":"1","TRACK_NUMBER":"9","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"UK9LA1400102","DATE_ADD":1445249261,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"associatedperformer":["Jean-michel Jarre","Gesaffelstein","Jean-Michel Jarre & Gesaffelstein"],"composer":["Jean-michel Jarre"],"engineer":["Jean-michel Jarre","Gesaffelstein","Joachim Garraud"],"mainartist":["Jean-michel Jarre","Gesaffelstein"],"mixing engineer":["Jean-michel Jarre","Joachim Garraud"],"producer":["Jean-michel Jarre","Gesaffelstein"],"recording engineer":["Jean-michel Jarre","Gesaffelstein","Joachim Garraud"],"mastering engineer":["David Dadwater"]},"LYRICS_ID":0,"__TYPE__":"song"},{"SNG_ID":"80556632","PRODUCT_TRACK_ID":"125331671","UPLOAD_ID":0,"SNG_TITLE":"Latch","ART_ID":"1097709","PROVIDER_ID":"111","ART_NAME":"Sam Smith","ARTISTS":[{"ART_ID":"1097709","ROLE_ID":"0","ART_NAME":"Sam Smith","ART_PICTURE":"1501c577594a5fda93639640cd8c6147","SMARTRADIO":"1","RANK":"950117","__TYPE__":"artist"}],"ALB_ID":"8046348","ALB_TITLE":"In The Lonely Hour","TYPE":0,"MD5_ORIGIN":"d9fe0d398ec05797916fc0f714b9878c","VIDEO":false,"DURATION":"223","ALB_PICTURE":"79d008d34deb2410bda14963de637604","ART_PICTURE":"1501c577594a5fda93639640cd8c6147","RANK_SNG":"745585","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1788028","FILESIZE_MP3_128":"3569106","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"8940300","FILESIZE":"3569106","MEDIA_VERSION":"2","DISK_NUMBER":"1","TRACK_NUMBER":"12","VERSION":"Acoustic","EXPLICIT_LYRICS":"0","RIGHTS":{},"ISRC":"GBUM71308970","DATE_ADD":0,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Sam Smith"],"composer":["Howard Lawrence","Guy Lawrence","Sam Smith","Jimmy Napes"]},"LYRICS_ID":"102712","FALLBACK":{"SNG_ID":"111031430","PRODUCT_TRACK_ID":"125331671","UPLOAD_ID":0,"SNG_TITLE":"Latch","ART_ID":"1097709","PROVIDER_ID":"111","ART_NAME":"Sam Smith","ARTISTS":[{"ART_ID":"1097709","ROLE_ID":"0","ART_NAME":"Sam Smith","ART_PICTURE":"1501c577594a5fda93639640cd8c6147","SMARTRADIO":"1","RANK":"950117","__TYPE__":"artist"}],"ALB_ID":"11546866","ALB_TITLE":"In The Lonely Hour","TYPE":0,"MD5_ORIGIN":"b879db7ba2d5e5668318386ef73989d2","VIDEO":false,"DURATION":"223","ALB_PICTURE":"39cd5c9a3c5e4c2d608ed94c1db54e40","ART_PICTURE":"1501c577594a5fda93639640cd8c6147","RANK_SNG":"478276","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1788028","FILESIZE_MP3_128":"3576057","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"8940146","FILESIZE":"3576057","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"12","VERSION":"(Acoustic)","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBUM71308970","HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Sam Smith"],"composer":["Howard Lawrence","Guy Lawrence","Sam Smith","Jimmy Napes"]},"LYRICS_ID":"102712","__TYPE__":"song"},"__TYPE__":"song"},{"SNG_ID":"111039188","PRODUCT_TRACK_ID":"301986291","UPLOAD_ID":0,"SNG_TITLE":"Aftertaste","ART_ID":"311820","PROVIDER_ID":"111","ART_NAME":"Ellie Goulding","ARTISTS":[{"ART_ID":"311820","ROLE_ID":"0","ART_NAME":"Ellie Goulding","ART_PICTURE":"7cb51cc348a5f81a5d641b2ee2887cde","SMARTRADIO":"1","RANK":"979871","__TYPE__":"artist"}],"ALB_ID":"11547762","ALB_TITLE":"Delirium","TYPE":0,"MD5_ORIGIN":"597c67eb7679cddf53b6f0936e531b1b","VIDEO":false,"DURATION":"226","ALB_PICTURE":"ae88fe7aae1ecdd23377edfd8f285a0c","ART_PICTURE":"7cb51cc348a5f81a5d641b2ee2887cde","RANK_SNG":"472323","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1808926","FILESIZE_MP3_128":"3617853","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9044635","FILESIZE":"3617853","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"2","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBUM71505562","DATE_ADD":0,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Ellie Goulding"],"composer":["Greg Kurstin","Ellie Goulding"]},"LYRICS_ID":0,"__TYPE__":"song"},{"SNG_ID":"109517700","PRODUCT_TRACK_ID":"297870021","UPLOAD_ID":0,"SNG_TITLE":"The Love Within","ART_ID":"382","PROVIDER_ID":"111","ART_NAME":"Bloc Party","ARTISTS":[{"ART_ID":"382","ROLE_ID":"0","ART_NAME":"Bloc Party","ART_PICTURE":"ef9dcae1a6ac90bcee847b0ddd0d3676","SMARTRADIO":"1","RANK":"646808","__TYPE__":"artist"}],"ALB_ID":"11409100","ALB_TITLE":"The Love Within","TYPE":0,"MD5_ORIGIN":"804dfd79c85bd41a0a304b3bf768cdff","VIDEO":false,"DURATION":"277","ALB_PICTURE":"d74c1b39c0d83a40fb11b80a9c71b391","ART_PICTURE":"ef9dcae1a6ac90bcee847b0ddd0d3676","RANK_SNG":"547776","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"2221034","FILESIZE_MP3_128":"4442069","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"11105174","FILESIZE":"4442069","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GB5KW1501709","DATE_ADD":1445248945,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Bloc Party"],"composer":["Kele Okereke","Russell Lissack"]},"LYRICS_ID":0,"__TYPE__":"song"},{"SNG_ID":"109310388","PRODUCT_TRACK_ID":"299362221","UPLOAD_ID":0,"SNG_TITLE":"Majorette","ART_ID":"75055","PROVIDER_ID":"3","ART_NAME":"Beach House","ARTISTS":[{"ART_ID":"75055","ROLE_ID":"0","ART_NAME":"Beach House","ART_PICTURE":"1f8ecd077e96fb25a41a7e0d32178877","SMARTRADIO":"1","RANK":"454157","__TYPE__":"artist"}],"ALB_ID":"11389902","ALB_TITLE":"Thank Your Lucky Stars","TYPE":0,"MD5_ORIGIN":"f2e5b2748a8229a844f6d7cb8a36ba36","VIDEO":false,"DURATION":"240","ALB_PICTURE":"90c0e645b7a8a097baa0720582602507","ART_PICTURE":"1f8ecd077e96fb25a41a7e0d32178877","RANK_SNG":"591504","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1926581","FILESIZE_MP3_128":"3853164","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9632913","FILESIZE":"3853164","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"USSUB1514201","DATE_ADD":0,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"mainartist":["Beach House"]},"LYRICS_ID":0,"__TYPE__":"song"},{"SNG_ID":"105506062","PRODUCT_TRACK_ID":"290914191","UPLOAD_ID":0,"SNG_TITLE":"Willing & Able","ART_ID":"409796","PROVIDER_ID":"111","ART_NAME":"Disclosure","ARTISTS":[{"ART_ID":"409796","ROLE_ID":"0","ART_NAME":"Disclosure","ART_PICTURE":"5ca530594e6e844df3cdf743c85ff7f0","SMARTRADIO":"1","RANK":"898538","__TYPE__":"artist"},{"ART_ID":"5487123","ROLE_ID":"5","ART_NAME":"Kwabs","ART_PICTURE":"02c70c3929046dc59c9ada02732bfd54","SMARTRADIO":"1","RANK":"824354","__TYPE__":"artist"}],"ALB_ID":"10991192","ALB_TITLE":"Willing & Able","TYPE":0,"MD5_ORIGIN":"0911ee3998dbfd7cbc7d256f99d4f886","VIDEO":false,"DURATION":"293","ALB_PICTURE":"9e89ee58bcb67bcf81539b906e996551","ART_PICTURE":"5ca530594e6e844df3cdf743c85ff7f0","RANK_SNG":"675638","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"2342660","FILESIZE_MP3_128":"4685321","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"11713305","FILESIZE":"4685321","MEDIA_VERSION":"0","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"0","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"GBUM71503567","DATE_ADD":0,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Disclosure"],"featuring":["Kwabs"],"composer":["Guy Lawrence","Howard Lawrence","Kwabena Adjepong","Finlay Robson","James Napier"]},"LYRICS_ID":"1674806","__TYPE__":"song"},{"SNG_ID":"109726566","PRODUCT_TRACK_ID":"299971351","UPLOAD_ID":0,"SNG_TITLE":"These Walls","ART_ID":"525046","PROVIDER_ID":"111","ART_NAME":"Kendrick Lamar","ARTISTS":[{"ART_ID":"525046","ROLE_ID":"0","ART_NAME":"Kendrick Lamar","ART_PICTURE":"9efd1d48a5328e2dd82779ca8de9ba8c","SMARTRADIO":"1","RANK":"801868","__TYPE__":"artist"},{"ART_ID":"4988","ROLE_ID":"5","ART_NAME":"Bilal","ART_PICTURE":"2cb8d2201d4a473f70b1396e24bbeab5","SMARTRADIO":"1","RANK":"495855","__TYPE__":"artist"},{"ART_ID":"546520","ROLE_ID":"5","ART_NAME":"Thundercat","ART_PICTURE":"4d5dec5dcc2e9c7bbd78286fc47b57d7","SMARTRADIO":"1","RANK":"449966","__TYPE__":"artist"},{"ART_ID":"1150659","ROLE_ID":"5","ART_NAME":"Anna Wise","ART_PICTURE":"","SMARTRADIO":"0","RANK":"512091","__TYPE__":"artist"}],"ALB_ID":"11431506","ALB_TITLE":"These Walls","TYPE":0,"MD5_ORIGIN":"bb1904c8c8302fbf6d41d6896995b857","VIDEO":false,"DURATION":"249","ALB_PICTURE":"e79789e6f2a10dc5bcd284539a646ecd","ART_PICTURE":"9efd1d48a5328e2dd82779ca8de9ba8c","RANK_SNG":"562635","SMARTRADIO":"1","FILESIZE_AAC_64":0,"FILESIZE_MP3_64":"1989902","FILESIZE_MP3_128":"3979806","FILESIZE_MP3_256":0,"FILESIZE_MP3_320":"9949517","FILESIZE":"3979806","MEDIA_VERSION":"4","DISK_NUMBER":"1","TRACK_NUMBER":"1","VERSION":"","EXPLICIT_LYRICS":"1","RIGHTS":{"STREAM_ADS_AVAILABLE":true,"STREAM_ADS":"2000-01-01","STREAM_SUB_AVAILABLE":true,"STREAM_SUB":"2000-01-01","DOWNLOAD_ALC":"2000-01-01","DOWNLOAD_ALC_AVAILABLE":true},"ISRC":"USUM71516422","DATE_ADD":0,"HIERARCHICAL_TITLE":"","SNG_CONTRIBUTORS":{"main_artist":["Kendrick Lamar"],"featured_artist":["Bilal","Anna Wise","Thundercat"],"composer":["K. Duckworth","T. Martin","L. Dopson","R. McKinney","J. Fauntleroy"]},"LYRICS_ID":"1611152","__TYPE__":"song"}],"total":23,"count":20,"checksum":"efdd40001273c48f9893f20491ac83f0"},
+	index: 0,
+	auto_play: false,
+	show_lyrics: false,
+	element_id: 65489349};
+// -->
+</script>
+<script type="text/javascript" src="en_GB-29f03ae4c8dc1794b1f75cec49617330.js"></script>
+
+<script type="text/javascript" src="widget-0c6ce31f9804c43165068a783fa04759.js"></script>
+<script type="text/javascript">
+var yscroll = 0;
+var client_height = getClientHeight();
+var client_width = getClientWidth();
+
+	Events.resolve(Events.user.loaded);
+</script>
+
+<script type="text/javascript">
+if (window.BrowserDetect && window.BrowserDetect.browser === 'Chrome') {
+	var cs = document.createElement('script');
+	cs.src = '//www.gstatic.com/cv/js/sender/v1/cast_sender.js';
+	(document.head || document.documentElement).appendChild(cs);
+}
+</script>
+
+	<script type="text/javascript">
+		DZ_IS_PLAYER = true;
+	</script>
+
+	<script type="text/javascript" src="dz-v00346615.js"></script>
+
+	<script type="text/javascript">
+
+		if (typeof(window.onscroll) != 'function') {
+			window.onscroll = function(){};
+		}
+
+		$(document).ready(function() {
+			if (USER.USER_ID > 0) {
+				Events.resolve(Events.user.loaded);
+				userData.init();
+			}
+
+			// Overrides window.onbeforeunload in core/www.js in order to prevent confirma box when unload
+			window.onbeforeunload = function(){};
+		});
+
+		var restriction = {"date_end_discover":1417564800,"time_used":0,"discovery":false,"birthday":1449100800,"days_left":18,"time_left":0,"percent":0};
+		var MOBILE_PLATFORM = false;
+		var widget_options = {"playlist":false,"width":700,"height":80,"autoplay":false,"type":"tracks","id":"77104736","format":"classic","size":"medium","layout":"dark","partner":false,"popup":false,"emptyPlayer":false,"app_id":0,"color":"007FEB","currentPlay":{"id":77104736,"cover":"cover\/fc0e7c4d557db44695923f8033bcae14","title":"Prince Vince","title_href":"http:\/\/www.deezer.com\/track\/77104736","subtitle":"Kid Francescoli","subtitle_href":"http:\/\/www.deezer.com\/artist\/56333","md5":null,"type":"song"}};
+
+		function canWriteCookie() {
+
+			var value = 'myvalue';
+
+			setCookie('deezer_test_cookie', value);
+
+			var cookie_value = getCookie('deezer_test_cookie');
+
+			if (cookie_value == value) {
+				return true;
+			}
+
+			return false;
+		}
+
+		$(document).ready(function(){
+			$(window).load(function(){
+				if (typeof(window.onscroll) != 'function') {
+					window.onscroll = function(){};
+				}
+
+									if (canWriteCookie()) {
+
+						widget.init({drawPlayer:true, widgetOptions : widget_options});
+
+					} else {
+						$('#loading_overlay').hide();
+						var play_overlay = $('#play_overlay');
+						var play_overlay_img_container = play_overlay.find('#play_overlay_img');
+
+						var play_overlay_img = $('<img/>');
+						play_overlay_img.attr('src', play_overlay_img_container.data('src'));
+
+						play_overlay_img_container.append(play_overlay_img);
+
+						play_overlay.show().find('#popup_play_button').click(function(){
+							var src = SETTING_HOST_SITE + '/plugins/channel.php';
+
+							src += '#widget_play_popup';
+
+							var popup_w = 1;
+							var popup_h = 1;
+
+							window.open(src,'init', 'top=0,left=0,width='+popup_w+',height='+popup_h+',location=yes', true);
+						});
+					}
+								if (USER.USER_ID > 0) {
+					limitation.init();
+				}
+				if (window.location.protocol != 'https:') {
+					live.init();
+				}
+			});
+		});
+
+		function sendFbLogged() {
+			FB.getLoginStatus(function(response){
+				if (typeof(response.status) != 'undefined' && response.status == 'not_authorized') {
+					DZ.communication.send('parent','DZ.player.receiveEvent',{evt:'FB_LOGGED'});
+				}
+			});
+		}
+
+		user.logout = function() {
+			try {
+
+				if (LOG_TYPE == 'facebook') {
+
+					FB.getLoginStatus(function(response) {
+
+						if (response.status == 'connected') {
+
+							FB.logout(function(response) {
+								LOG_TYPE = 'internal';
+								user.logout();
+							});
+
+						} else {
+							LOG_TYPE = 'internal';
+							user.logout();
+						}
+
+					}, true);
+
+					return;
+				}
+
+				var logout_data = sendRequest('/ajax/action.php', 'text', 'type=logout');
+
+				// Logout data
+				if (logout_data != null) {
+					logout_data = eval('(' + logout_data + ')');
+				}
+
+				// Reset USER
+				USER = {};
+				USER.USER_ID = 0;
+				USER.FB_USER_ID = 0;
+				USER.OPTIONS = logout_data.OPTIONS;
+				USER.SETTING = {};
+				USER.FACEBOOK = {};
+				USER.LASTFM = {};
+				USER.TWITTER = {};
+				RANDOM_KEY = '';
+				DZPS = false;
+				OFFER_ID = 0;
+				COUNTRY = logout_data.COUNTRY;
+
+				LOG_TYPE = 'internal';
+
+				Events.trigger(Events.user.logout);
+
+				return true;
+			} catch (e) {
+				console.log(e);
+			}
+		};
+	</script>
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow-x:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+<body>
+		<style type="text/css">
+	a.link-primary,
+	a.link-primary:hover,
+	.link-primary,
+	.link-primary:hover,
+	.icon.active,
+	.widgets .active .icon-love,
+	.widgets .active:hover .icon-love {
+		color: #007FEB !important;
+	}
+	.widgets .btn-primary,
+	.widgets-classic .widget .content .info .track .track-progress .track-bar,
+	.widgets-classic .widget .content .footer .volume-progress .volume-bar,
+	.widgets-square .widget .visual .content .info .track-progress .track-bar,
+	.active .icon-loved, .active:hover .icon-loved, .widgets-dark .active .icon-loved, .widgets-dark .active:hover .icon-loved  {
+		background-color: #007FEB;
+	}
+	</style>
+
+	<script type="text/javascript">
+		var widgetThemeColor = '#007FEB';
+	</script>
+
+	
+<div id="core_player" style="top:0px; position:fixed; z-index:9900;"><embed type="application/x-shockwave-flash" src="http://e-cdn-files.deezer.com/cache/swf/coreplayer3_1-18682a709e5d12a26c71e03b88c1d76c.swf" width="1" height="1" style="undefined" id="audioPlayerSWF" name="audioPlayerSWF" bgcolor="#3a3a3a" quality="high" wmode="transparent" allowscriptaccess="always" menu="false" haspriority="true" flashvars="host_stream_cdn=http://cdn-proxy-{0}.deezer.com/mobile/1/&amp;host_stream=http://proxy-{0}.deezer.com/mobile/1/&amp;host_preview=http://preview-{0}.deezer.com/stream/{1}-{2}.mp3&amp;cdn_ratio=100&amp;range_qs=x-bits-range&amp;allow_range=true&amp;offline=false&amp;token=7a6b2fe07a585a779b09014bf2df820e504d06632656d5208ea5e7d2064962a4a6e85c885d91eaadcebe68565a89f2b775e63ab8c9cf17dffcbd50b8562592b68b48512c09f96a80fe4379a0e6ad0b6ef540df857b50e5e6977e521c48ac47f019d1a0f3728596b3b5c7a2851c08a57f1ce7aa51594079443963742456a61e1cb91f5d802b1c57925f3d5b4550d409beb638feccc360c3653ff5e4fba63dd340c2f68792f9b18c274830246101dca63a0916828e1307ba3db2b49ab9b12017b4fc6428eeaae3f402d78259e53edbfd82d76ab5c3f9490c22faa589996e404a622d4d070b350d38048a59891450219ed82a689a047237588b91023f5e5cea32bc4abeeb561455d5caf9b0186353cd8b51474acd689f439a6991fd8acbd1e93ad1cc0cdc5a17dd2342ef39bd7cb37f0cb107d2ef55a55f02913b32cc2d180833495e3449261499e3b80ac1571dee055fc1&amp;server_timestamp=1447616440"></div>
+
+<div id="widget-player"><div class="widgets widgets-medium widgets-dark" data-reactid=".1"><span data-reactid=".1.0"></span><div class="widgets-classic" id="widget-player-interaction" data-reactid=".1.1"><section class="widget" data-reactid=".1.1.0"><aside class="visual" id="widget-cover" data-reactid=".1.1.0.0"><figure class="thumbnail" data-reactid=".1.1.0.0.0"><span class="picture" data-reactid=".1.1.0.0.0.0"><img class="size-img" src="90x90-000000-100-1-1.jpg" data-reactid=".1.1.0.0.0.0.0"></span><span class="play play-32" data-reactid=".1.1.0.0.0.1"><span class="icon-stack icon-stack-hover icon-stack-circle icon-32" id="play-controls" data-reactid=".1.1.0.0.0.1.0"><span data-reactid=".1.1.0.0.0.1.0.0"><span class="play-icon play-default" role="button" data-reactid=".1.1.0.0.0.1.0.0.0"><span class="icon icon-play" data-reactid=".1.1.0.0.0.1.0.0.0.0"></span></span><span class="play-icon play-hover" role="button" data-reactid=".1.1.0.0.0.1.0.0.1"><span class="icon icon-pause" data-reactid=".1.1.0.0.0.1.0.0.1.0"></span></span><span class="play-icon play-active" data-reactid=".1.1.0.0.0.1.0.0.2"><span class="equalizer equalizer-inverse equalizer-16" data-reactid=".1.1.0.0.0.1.0.0.2.0"><span class="equalizer-bar equalizer-bar-1" data-reactid=".1.1.0.0.0.1.0.0.2.0.0"></span><span class="equalizer-bar equalizer-bar-2" data-reactid=".1.1.0.0.0.1.0.0.2.0.1"></span><span class="equalizer-bar equalizer-bar-3" data-reactid=".1.1.0.0.0.1.0.0.2.0.2"></span></span></span></span></span></span></figure></aside><div class="content" data-reactid=".1.1.0.1"><article class="info info-medium" data-reactid=".1.1.0.1.0"><a href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" id="popup-btn" class="icon icon-resize-up hover" role="button" data-reactid=".1.1.0.1.0.0"></a><h1 class="heading-1" style="width:auto;" data-reactid=".1.1.0.1.0.1"><a href="http://www.deezer.com/track/77104736" class="link-gray-dark ellipsis" target="_blank" style="display:inline-block;" data-reactid=".1.1.0.1.0.1.0">Prince Vince</a></h1><h2 class="heading-2" style="display:inline-block;" data-reactid=".1.1.0.1.0.2"><span data-reactid=".1.1.0.1.0.2.0"> by </span><a href="http://www.deezer.com/artist/56333" class="link-primary ellipsis" title="Kid Francescoli" target="_blank" data-reactid=".1.1.0.1.0.2.1">Kid Francescoli</a></h2><div data-reactid=".1.1.0.1.0.3"><div class="controls" style="display:block;" data-reactid=".1.1.0.1.0.3.0"><div class="progress-bar progress-time" data-reactid=".1.1.0.1.0.3.0.0"><a href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" class="icon icon-time" role="button" style="display:none;" data-reactid=".1.1.0.1.0.3.0.0.0"></a><span data-reactid=".1.1.0.1.0.3.0.0.1"><a href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" class="icon icon-prev" role="button" style="display:none;" data-reactid=".1.1.0.1.0.3.0.0.1.0"></a><div id="track-progress" role="button" style="height:25px;margin-top:-20px;width:100%;" data-reactid=".1.1.0.1.0.3.0.0.1.1"><canvas width="554" height="25"></canvas></div><a href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" class="icon icon-next" role="button" style="opacity:0.2;" data-reactid=".1.1.0.1.0.3.0.0.1.2"></a></span></div></div><div class="share" style="display:none;" data-reactid=".1.1.0.1.0.3.1"><input id="input_share" type="text" value="http://www.deezer.com/track/77104736" selected="" class="form-control" style="text-overflow:ellipsis;" readonly="" data-reactid=".1.1.0.1.0.3.1.0"></div></div></article><footer class="footer" data-reactid=".1.1.0.1.1"><ul class="clearfix" data-reactid=".1.1.0.1.1.0"><li data-reactid=".1.1.0.1.1.0.0"><a class="selected" role="button" id="icon_loved" href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" title="Add to Favourite tracks" data-type="song" data-reactid=".1.1.0.1.1.0.0.0" data-id="77104736"><span class="icon icon-love" data-reactid=".1.1.0.1.1.0.0.0.0"></span></a></li><li data-reactid=".1.1.0.1.1.0.1"><a href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" role="button" data-reactid=".1.1.0.1.1.0.1.0"><span class="icon icon-shuffle" data-reactid=".1.1.0.1.1.0.1.0.0"></span></a></li><li data-reactid=".1.1.0.1.1.0.2"><a href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" role="button" data-reactid=".1.1.0.1.1.0.2.0"><span class="icon icon-repeat" data-reactid=".1.1.0.1.1.0.2.0.0"></span></a></li><li data-reactid=".1.1.0.1.1.0.3"><a href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" title="Share" role="button" data-reactid=".1.1.0.1.1.0.3.0"><span class="icon icon-share hover" data-reactid=".1.1.0.1.1.0.3.0.0"></span></a></li><li class="pull-right height-logo" data-reactid=".1.1.0.1.1.0.4"><a href="http://www.deezer.com/" target="_blank" data-reactid=".1.1.0.1.1.0.4.0"><span class="icon logo" data-reactid=".1.1.0.1.1.0.4.0.0"></span></a></li><div id="player-volume" class="player-volume" style="display:block;" data-reactid=".1.1.0.1.1.0.5"><li id="volume-handle" class="pull-right" data-reactid=".1.1.0.1.1.0.5.0"><span class="icon icon-volume hover" title="Volume" data-reactid=".1.1.0.1.1.0.5.0.0"></span></li><li id="volume-slider" class="pull-right" style="display:none;" data-reactid=".1.1.0.1.1.0.5.1"><span class="volume-slider" id="volume-slider" data-reactid=".1.1.0.1.1.0.5.1.0"><span class="volume-progress" id="volume_progress" data-reactid=".1.1.0.1.1.0.5.1.0.0"><span id="player_volume_bar" class="volume-bar" style="width:50%;" data-reactid=".1.1.0.1.1.0.5.1.0.0.0"></span><a id="player_volume_handler" role="button" class="icon icon-handler icon-circle-full" style="left:16px;" data-reactid=".1.1.0.1.1.0.5.1.0.0.1"></a></span></span></li><li id="volume-mute" class="pull-right" style="display:none;" data-reactid=".1.1.0.1.1.0.5.2"><a href="http://www.deezer.com/plugins/player?autoplay=false&playlist=false&width=700&height=80&cover=true&type=tracks&id=77104736&title=&app_id=undefined#" title="Mute" data-reactid=".1.1.0.1.1.0.5.2.0"><span class="icon icon-volume-min" role="button" data-reactid=".1.1.0.1.1.0.5.2.0.0"></span></a></li></div></ul></footer></div></section></div></div></div><div id="livebar_gateway" style="display:none;"></div>
+<div id="dz-root"></div>
+
+<div id="fb-root" class=" fb_reset"><script async="" src="vb.js"></script><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_http" src="wjDNIDNrTQG.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="Facebook Cross Domain Communication Frame" aria-hidden="true" tabindex="-1" id="fb_xdm_frame_https" src="wjDNIDNrTQG(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><span><object type="application/x-shockwave-flash" data="https://fbstatic-a.akamaihd.net//rsrc.php/v1/yh/r/wxFTIlYaa8g.swf" id="f534c06e"><param name="allowscriptaccess" value="always"><param name="flashvars" value="app_id=241284008322&amp;domain=www.deezer.com"><param name="movie" value="https://fbstatic-a.akamaihd.net//rsrc.php/v1/yh/r/wxFTIlYaa8g.swf"></object></span></div></div></div>
+<script type="text/javascript">
+
+	(function() {
+
+		'use strict';
+
+		facebook.setAppData(
+			{"id":241284008322,"namespace":"deezer-app","scope":"email,user_birthday,user_likes,user_friends,publish_actions","version":"2.3","channel":"http:\/\/www.deezer.com\/fbgateway.html"}		);
+
+		if (user.current()) {
+
+			facebook.setFBUid(
+				''
+			).setAccessToken(
+				''
+			).allowExternalScope(
+							);
+
+		}
+
+		facebook.setAutoLogin(
+			true		);
+
+		window.fbAsyncInit = facebook.initFB.bind(facebook);
+
+		var lang = 'en_GB';
+		var e = document.createElement('script');
+		e.async = true;
+		e.src = document.location.protocol + '//connect.facebook.net/' + lang + '/sdk/vb.js';
+		document.getElementById('fb-root').appendChild(e);
+
+	})();
+
+</script><script type="text/javascript">
+var gatekeeper = {
+
+	features : {"multi_account":false,"api_mob_ssl":true,"force_v5":true,"new_search":true,"search_label":false,"search_tag":false,"latest_episodes":false,"mobile_offline_expiration":false,"synchro_web_to_mobile":false,"desktop_client_windows":false,"console_log":false,"operator_test":false,"curator_feature":false,"curator_edito":false,"curator_label":false,"curator_telco":false,"curator_partner":false,"curator_local":false,"employee_feature":false,"onboarding":true,"instant_auth":false,"native_reg_ios":true,"native_reg_android":true,"native_app_rating_ios":true,"native_app_rating_android":true,"native_reg_wp":true,"operator_v2":false,"operator_web_v2":false,"operator_enable_instant_auth":false,"operator_termsconditions":false,"beta_user":false,"deezer_pro":false,"talk":false,"playlist_assistant":false,"charts_playlists_curated":false,"new_hp_artwork":false,"new_hp_artwork_uk":false,"newrelic":false,"performance_monitoring":false,"new_home":true,"new_home_de":false,"new_home_en":false,"carplay":false,"cell_add_to_library":false,"facebook_sso_wp":false,"box_conversion_free":false,"box_conversion_mobile_tablet":false,"talk_latest_playlist":false,"news_entertainment":false,"opening_interstitial_ios":false,"opening_interstitial_android":false,"landing_campaign":false,"audiobooks":false,"new_popular_musics":true,"material_design":false,"moods":false},
+	isAllowed : function(feature) {
+		if (typeof(gatekeeper.features[feature]) == 'undefined') {
+			return false;
+		}
+		return gatekeeper.features[feature];
+	}
+};
+</script>
+
+<script type="text/javascript">
+
+	//var pageTracker = _gat._getTracker("UA-417097-1");
+	//pageTracker._initData();
+	//pageTracker._trackPageview();
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-417097-1']);
+	_gaq.push(['_setDomainName', '.deezer.com']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+    	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  	})();
+
+</script>
+
+
+
+</body></html>

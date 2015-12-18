@@ -1,0 +1,145 @@
+(function() {
+    var SiteHud = {
+        config: {},
+        objs: {},
+        init: function(args) {
+            var self = this;
+
+            $.each(args, function(key, value) {
+                self.config[key] = value; 
+            });
+            
+            this.buildContainer(); 
+        },
+        attachEvents: function() {
+
+        },
+        buildContainer: function() {
+            var container = $('<div>', {id: 'virbHud'}),
+                menu      = $('<ul>', {id: 'virbMenu'});
+            
+            if (this.config.state === 'default') {
+                this.addAdminButtons(menu);
+            } else if (this.config.state === 'maintenance_login') {
+                this.addMaintenanceLogin(menu);
+            }
+             
+            container.append(menu);
+            $('body').append($('<style>', {type: 'text/css', media: 'screen', text: unescape(this.config.css)})).append(container);
+
+            this.objs.container = container;
+        },
+        addAdminButtons: function($menu) {
+            var backToAdmin = $('<a>', {'class': 'backToAdminButton', href: 'http://' + this.config.virb_domain + '/pages', text: 'Admin'});
+                editPage    = $('<a>', {'class': 'editPageButton', href: this.config.edit_url, text: 'Edit'});
+
+            $menu.append($('<li>').append(backToAdmin));
+            $menu.append($('<li>', {'class': 'last'}).append(editPage));
+        },
+        addMaintenanceLogin: function($menu) {
+            var toggleLogin = $('<a>', {href: '#'}).append($('<span>', {'class': 'icon-person', text: ''}));
+
+            toggleLogin.click(function(e) { 
+				$('#virbHud .login-form').toggle();
+
+                e.preventDefault(); 
+            });
+
+            var formContainer = $('<div>', {'class': 'login-form'}),
+                form          = $('<form>', {name: 'login', id: 'login', action: '/', method: 'post'}),
+                email         = $('<input>', {type: 'text', name: 'mm[email]', title: 'Email', 'class': 'titleinside'}),
+                password      = $('<input>', {type: 'password', name: 'mm[password]', title: 'Password', 'class': 'titleinside'}),
+                submit        = $('<input>', {type: 'submit', value: 'Login'});
+
+            form.append(
+                $('<p>').append(
+                    $('<span>', {'class': 'field email'}).append(email)
+                )
+            ).append(
+                $('<p>').append(
+                    $('<span>', {'class': 'field password'}).append(password)
+                )
+            ).append(
+                $('<div>', {'class': 'form-submit'}).append(submit)
+            );
+
+            formContainer.append(form);
+
+            $menu.append($('<li>').append(toggleLogin).append(formContainer));
+        }
+    };
+    
+	$.fn.attachTitleInside = function() {
+		return this.each(function() {
+			var $this = $(this);
+			
+			$.data(this, 'title', $this.attr('title'));
+			
+			// If the value is empty insert default text
+			if ($this.val() == '') {
+				$this.val($.data(this, 'title'));
+			}
+			// If value does not equal default text add the focus class
+			else if ($this.val() != $.data(this, 'title')) {
+				if ($this.attr('type') != 'password')
+					$this.attr('title', $this.val());						
+
+				$this.addClass('focus');
+			}
+			
+			$this.unbind('focus').focus(function(event) {
+				var $this = $(this);
+				
+				// Add focus class
+				if (!$this.hasClass('focus'))
+					$this.addClass('focus');	
+				
+			   	// If the value is the same as the default text we want to remove it
+				if ($this.val() == $.data(this, 'title'))
+					$this.val('');					
+			});
+
+			$this.unbind('blur').blur(function(event) {				
+				var $this = $(this);
+
+				// If the value is empty we want to add the default text
+				if ($this.val() == '') {
+					$this.removeClass('focus');	
+					$this.val($.data(this, 'title'));					
+				}
+				
+				if ($this.attr('type') != 'password')
+					$this.attr('title', $this.val());
+			});
+		});
+	};
+
+	$.fn.showTitleInside = function() {
+		return this.each(function() {
+			if (this.value == '')
+				this.value = $.data(this, 'title');					
+		});
+	};
+	
+	$.fn.hideTitleInside = function() {
+		return this.each(function() {
+			if (this.value == $.data(this, 'title'))
+				this.value = '';					
+		});	
+	};
+    
+    $(function() {
+        SiteHud.init({"virb_domain":"virb.com","state":"default","edit_url":"http:\/\/virb.com\/pages\/gallery\/edit\/1536471","css":"@font-face {%0D\tfont-family: \"Global\";%0D    src: url(\"http:\/\/assets.virbcdn.com\/_assets\/_fonts\/_icons\/global-regular.eot\");%0D    src: url(\"http:\/\/assets.virbcdn.com\/_assets\/_fonts\/_icons\/global-regular.eot?#iefix\") format(\"embedded-opentype\"),%0D         url(\"http:\/\/assets.virbcdn.com\/_assets\/_fonts\/_icons\/global-regular.woff\") format(\"woff\"),%0D         url(\"http:\/\/assets.virbcdn.com\/_assets\/_fonts\/_icons\/global-regular.ttf\") format(\"truetype\"),%0D         url(\"http:\/\/assets.virbcdn.com\/_assets\/_fonts\/_icons\/global-regular.svg#global-regular\") format(\"svg\");%0D\tfont-weight: normal;%0D\tfont-style: normal;%0D}%0D@font-face {%0D    font-family: \"virb-icons\";%0D    src: url(\"\/_assets\/_fonts\/_icons\/virb-icons.eot\");%0D    src: url(\"\/_assets\/_fonts\/_icons\/virb-icons.eot?#iefix\") format(\"embedded-opentype\"),%0D         url(\"\/_assets\/_fonts\/_icons\/virb-icons.woff\") format(\"woff\"),%0D         url(\"\/_assets\/_fonts\/_icons\/virb-icons.ttf\") format(\"truetype\"),%0D         url(\"\/_assets\/_fonts\/_icons\/virb-icons.svg#global-regular\") format(\"svg\");%0D    font-weight: normal;%0D    font-style: normal;%0D}%0Dbody #virbHud .icon {%0D    font-family: \"virb-icons\";%0D    speak: none;%0D    font-style: normal;%0D    font-weight: normal;%0D    font-variant: normal;%0D    text-transform: none;%0D    line-height: 1;%0D    float: right;%0D    padding: 5px 20px;%0D    font-size: 16px;%0D    \/* Better Font Rendering =========== *\/%0D    -webkit-font-smoothing: antialiased;%0D    -moz-osx-font-smoothing: grayscale;%0D}%0Dbody #virbHud .icon-cog:before {%0D    content: \"\\e600\";%0D    color: #92979c;%0D}%0Dbody #virbHud,%0Dbody #virbHud * {%0D    font: normal 12px\/16px \"Lucida Grande\", \"Lucida Sans Unicode\", Verdana, \"Jamrul\", sans-serif;%0D    margin: 0;%0D    padding: 0;%0D    height: auto;%0D    width: auto; %0D    background: transparent;%0D    min-width: 0px;%0D    visibility: visible;%0D    display: inline-block;%0D    outline: none; %0D    text-align: right;%0D    border: none;%0D\ttext-decoration: none;%0D\tlist-style-type: none;%0D\tposition: relative;%0D}%0Dbody #virbHud {%0D    position: fixed;%0D    bottom: 10px;%0D    right: -110px;%0D\tz-index: 10001;%0D\t-webkit-transition: right .5s ease;%0D\t-moz-transition: right .5s ease;%0D\t-ms-transition: right .5s ease;%0D\t-o-transition: right .5s ease;%0D\ttransition: right .5s ease;%0D}%0Dbody #virbHud.clicked-open {%0D    right: 10px;%0D}%0Dbody #virbHud .icon {%0D    -webkit-transition:-webkit-transform .5s ease-in-out;%0D    -moz-transition: -moz-transform .5s ease-in-out;%0D    -ms-transition: -ms-transform .5s ease-in-out;%0D    -o-transition: -o-transform .5s ease-in-out;%0D    transition: transform .5s ease-in-out;%0D}%0Dbody #virbHud.clicked-open .icon {%0D    -moz-transform: rotate(45deg);%0D    -webkit-transform: rotate(45deg);%0D    -o-transform: rotate(45deg);%0D    -ms-transform: rotate(45deg);%0D    transform: rotate(45deg);%0D}%0Dbody #virbHud .virbhudlink {%0D\tpadding-left: 40px;%0D\tbackground-position: 10px 8px;%0D    float: left;%0D    width: 30px;%0D    height: 20px;%0D}%0Dbody #virbMenu a span {%0D\tfont: normal 14px\/24px \"Global\";%0D}%0Dbody #virbMenu li {%0D\tfont-size: 12px;%0D  \tpadding: 0;%0D  \tbox-shadow: 0 -2px rgba(0, 0, 0, 0.15) inset; %0D\tmargin-right: 10px;%0D\t-moz-border-radius: 3px;%0D \tborder-radius: 3px;%0D  \tbackground-color: #92979c;%0D  \tline-height: 11px;%0D  \tdisplay: inline-block;%0D  \tcolor: white;%0D  \tfont-weight: normal;%0D  \tborder: none;%0D  \t-webkit-transition: all .2s linear;%0D    -moz-transition: all .2s linear;%0D    -o-transition: all .2s linear;%0D    transition: all .2s linear;%0D}%0Dbody #virbMenu li a {%0D\tdisplay: inline-block;%0D\ttext-align: center;%0D\tfont-weight: normal;%0D    color: #676F74;%0D    font-size: 11px;%0D    padding: 5px 10px;%0D    color: #fff;%0D}%0Dbody #virbMenu li:hover {%0D\tbackground-color: #676F74; %0D}%0Dbody#maintenance #virbMenu li:hover {%0D\tbackground-color: #384248;%0D}%0Dbody #virbMenu li.last {%0D    margin-right: 0;%0D}%0D\tbody #virbHud .icon-person:before,%0D\tbody #virbHud .icon-admin:before {%0D\t\ttop: 3px;%0D\t\tdisplay: inline-block;%0D\t\ttext-align: center;%0D\t}%0D\tbody #virbHud .icon-admin:before {%0D\t\tcontent: \"A\";%0D\t\tposition: relative;%0D\t\tleft: 0.5px;%0D\t\twidth: 51px;%0D\t}%0D\tbody #virbHud a .icon-person:before {%0D\t\tcontent: \"P\";%0D\t\tposition: relative;%0D\t\tline-height: 1;%0D\t}%0Dbody #virbHud .login-form * {%0D\twhite-space: nowrap;%0D}%0Dbody #virbHud .login-form {%0D\tpadding: 7px 10px;%0D\toverflow: hidden;%0D\tvertical-align: top;%0D\tline-height: 0;%0D\tdisplay: none;%0D    -moz-border-radius: 5px;%0D    border-radius: 5px;%0D\tfloat: right;%0D}%0D\tbody #virbHud .login-form .field.password,%0D\tbody #virbHud .login-form .field.email {%0D\t\tmargin-right: 6px;%0D\t}%0D\tbody #virbHud .login-form .field.password {%0D\t}%0D\tbody #virbHud .login-form .field input {%0D\t\tbackground: #fff;%0D\t\tborder: solid 2px #EBECED;%0D\t\tfont-size: 12px;%0D\t\tpadding: 6px;%0D\t\ttext-align: left;%0D\t\twidth: 140px;%0D\t\theight: 10px;%0D\t\tcolor: #b6babe;%0D\t}%0D\tbody #virbHud .login-form .field input.focus {%0D\t\tcolor: #676f74;%0D\t}%0D\tbody #virbHud .login-form .form-submit {%0D\t\tposition: relative;%0D\t\ttop: -1px;%0D\t}%0D\t\tbody #virbHud .login-form .form-submit input {%0D\t\t  -moz-border-radius: 5px;%0D\t\t  border-radius: 5px;%0D\t\t  font-size: 11px;%0D\t\t  line-height: 11px;%0D\t\t  display: inline-block;%0D\t\t  padding: 4px 7px 5px 7px;%0D\t\t  color: white;%0D\t\t  font-weight: normal;%0D\t\t  border: none;%0D\t\t  background-color: #0093DA;%0D\t\t  cursor: pointer;%0D\t  }%0D\t  %0D@media only screen and (max-width: 768px) {%0D\tbody #virbHud {display: none;}%0D}%0D"});
+		$('.titleinside').attachTitleInside();
+    });   
+
+    $(function() {
+        //move the hud on click
+        $('#virbHud').prepend('<a href="#" class="virbhudlink"><span class="icon icon-cog"></span></a>');
+        $(".virbhudlink").on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().toggleClass("clicked-open");
+            });
+    }); 
+
+})();
