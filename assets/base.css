@@ -914,8 +914,8 @@ p a, p a:visited { line-height: inherit; }
     max-width: 100vw;
 }
 
-.about {
+div.about {
 	text-align: center;
-	font-family: 'TeX Gyre Adventor', Helvetica, Arial, sans-serif;
+	font-family: 'Poiret One', Helvetica, Arial, sans-serif;
 	font-size: 2em;
 }
